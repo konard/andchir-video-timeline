@@ -4,6 +4,7 @@ import { MediaType, MediaItem, Track, TimelineState } from '../../models/timelin
 import { MediaLibraryComponent, MediaLibraryItem } from '../media-library/media-library.component';
 import { MediaToolbarComponent } from '../media-toolbar/media-toolbar.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
+import { AudioWaveformComponent } from '../audio-waveform/audio-waveform.component';
 import { TimelineDragDropService } from '../../services/timeline-drag-drop.service';
 import { PlaybackService } from '../../services/playback.service';
 import { TimelineStorageService } from '../../services/timeline-storage.service';
@@ -12,7 +13,7 @@ import { TimelineHistoryService } from '../../services/timeline-history.service'
 @Component({
   selector: 'app-timeline',
   standalone: true,
-  imports: [CommonModule, MediaLibraryComponent, MediaToolbarComponent, NotificationsComponent],
+  imports: [CommonModule, MediaLibraryComponent, MediaToolbarComponent, NotificationsComponent, AudioWaveformComponent],
   templateUrl: './timeline.component.html',
   styleUrl: './timeline.component.css'
 })

@@ -1,0 +1,18 @@
+<div class="audio-waveform-wrapper">
+  <!-- Loading Spinner -->
+  @if (isLoading()) {
+    <div class="loading-overlay">
+      <div class="spinner"></div>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (hasError()) {
+    <div class="error-state">
+      <i class="bi bi-exclamation-triangle"></i>
+    </div>
+  }
+
+  <!-- Waveform Container -->
+  <div #waveformContainer class="waveform-container" [class.hidden]="isLoading() || hasError()"></div>
+</div>

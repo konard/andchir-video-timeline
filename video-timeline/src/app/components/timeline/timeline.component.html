@@ -163,7 +163,19 @@
 
               <div class="resize-handle resize-handle-left absolute top-0 left-0 w-2 h-full cursor-ew-resize z-[2] bg-gradient-to-r from-white/30 to-transparent hover:bg-white/50"></div>
 
-              <div class="flex items-center gap-1.5 px-2 flex-1 overflow-hidden">
+              <!-- Audio waveform visualization -->
+              @if (item.type === MediaType.AUDIO && item.url) {
+                <div class="audio-waveform-container absolute inset-0 z-[0]">
+                  <app-audio-waveform
+                    [url]="item.url"
+                    [height]="48"
+                    waveColor="rgba(255, 255, 255, 0.6)"
+                    progressColor="rgba(255, 255, 255, 0.2)">
+                  </app-audio-waveform>
+                </div>
+              }
+
+              <div class="flex items-center gap-1.5 px-2 flex-1 overflow-hidden relative z-[1]" [class.audio-has-waveform]="item.type === MediaType.AUDIO && item.url">
                 <div class="text-lg flex-shrink-0">
                   @switch (item.type) {
                     @case (MediaType.VIDEO) {
